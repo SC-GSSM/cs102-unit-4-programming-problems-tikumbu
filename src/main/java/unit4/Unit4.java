@@ -7,6 +7,12 @@ public class Unit4 {
         Unit4 unit = new Unit4();
         // Example: test sumNumbers
         System.out.println("sumNumbers(5) = " + unit.sumNumbers(5));  // Expected: 15
+        System.out.println("repeatString('hi', 3) = " + unit.repeatString("hi", 3));
+        System.out.println("findFactorial(4) = " + unit.findFactorial(4));
+        System.out.println("countVowels('Hello World') = " + unit.countVowels("Hello World"));
+        System.out.println("isPalindrome('racecar') = " + unit.isPalindrome("racecar"));
+        unit.printAsteriskPatterns(6);
+        unit.multiplicationTable(5);
     }
 
     /**
@@ -30,6 +36,13 @@ public class Unit4 {
      */
     public int sumNumbers(int n) {
         // TODO: Implement this method
+        if (n > 0){
+            int sum = 0;
+            for (int x = 0; x <= n; x++){
+                sum += x;
+            }
+            return sum;
+        }
         return 0;
     }
 
@@ -55,6 +68,13 @@ public class Unit4 {
      */
     public String repeatString(String str, int n) {
         // TODO: Implement this method
+        if (!str.equals("") && n > 0){
+            String str1 = "";
+            for (int x = 0; x < n; x++){
+                str1 += str;
+            }
+            return str1;
+        }
         return "";
     }
 
@@ -79,7 +99,14 @@ public class Unit4 {
      */
     public int findFactorial(int n) {
         // TODO: Implement this method
-        return 0;
+        if (n > 0){
+            int ans = 1;
+            for (int x = 1; x <= n; x++){
+                ans *= x;
+            }
+            return ans;
+        }
+        return 1;
     }
 
     /**
@@ -103,7 +130,14 @@ public class Unit4 {
      */
     public int countVowels(String str) {
         // TODO: Implement this method
-        return 0;
+        str = str.toLowerCase();
+        int c = 0;
+        for (int x = 0; x < str.length(); x++){
+            if (str.charAt(x) == 'a' || str.charAt(x) == 'e' || str.charAt(x) == 'i' || str.charAt(x) == 'o' || str.charAt(x) == 'u'){
+                c++;
+            }
+        }
+        return c;
     }
 
     /**
@@ -130,6 +164,14 @@ public class Unit4 {
      */
     public boolean isPalindrome(String str) {
         // TODO: Implement this method
+        int end = str.length() - 1;
+        String str2 = "";
+        for (int x = end; x >= 0; x--){
+            str2 += str.charAt(x);
+        }
+        if (str2.equals(str)){
+            return true;
+        }
         return false;
     }
 
@@ -161,6 +203,21 @@ public class Unit4 {
      */
     public void printAsteriskPatterns(int n) {
         // TODO: Implement this method
+        for(int x = 0; x < n; x++){
+            System.out.print("*\n");
+        }
+        for (int x = 0; x < n; x++){
+            for (int y = 0; y < n; y++){
+                System.out.print("*  ");
+            }
+            System.out.print("\n");
+        }
+        for (int x = 0; x < n; x++){
+            for (int y = 0; y <= x; y++){
+                System.out.print("* ");
+            }
+            System.out.print("\n");
+        }
     }
 
     /**
@@ -185,5 +242,11 @@ public class Unit4 {
      */
     public void multiplicationTable(int n) {
         // TODO: Implement this method
+        for (int x = 1; x <= n; x++){
+            for (int y = 1; y <= n; y++){
+                System.out.print(x*y + "\t");
+            }
+            System.out.print("\n");
+        }
     }
 }
